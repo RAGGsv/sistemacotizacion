@@ -12,11 +12,11 @@ if (isset($_POST['precio_venta'])){$precio_venta=$_POST['precio_venta'];}
 	
 if (!empty($id) and !empty($cantidad) and !empty($precio_venta))
 {
-$insert_tmp=sqlsrv_query($con, "INSERT INTO tmp_cotizacion (id_tmp, id_producto,cantidad_tmp,precio_tmp,session_id) VALUES ('8','$id','$cantidad','$precio_venta','$session_id')");
+$insert_tmp=sqlsrv_query($con, "INSERT INTO tmp_cotizacion ( id_producto,cantidad_tmp,precio_tmp,session_id) VALUES ('$id','$cantidad','$precio_venta','$session_id')");
 }
 if (isset($_GET['id']))//codigo elimina un elemento del array
 {
-$delete=sqlsrv_query($con, "DELETE FROM tmp_cotizacion WHERE id_tmp='".mysql_escape_string($_GET['id'])."'");
+$delete=sqlsrv_query($con, "DELETE FROM tmp_cotizacion WHERE id_tmp='".$_GET['id']."'");
 }
 
 ?>
