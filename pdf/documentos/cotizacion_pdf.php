@@ -5,7 +5,7 @@
 	include("../../config/db.php");
 	include("../../config/conexion.php");
 	$session_id= session_id();
-	$sql_count=sqlsrv_query($con,"select * from tmp_cotizacion where session_id='".$session_id."'");
+	$sql_count=sqlsrv_query($con,"select * from tmp_cotizacion where session_id='ocple27sp8arhji7kclqnqt393'");
 	$count=sqlsrv_num_rows($sql_count);
 	if ($count==0)
 	{
