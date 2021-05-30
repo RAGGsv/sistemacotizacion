@@ -1,9 +1,5 @@
 <?php
-	/*-------------------------
-	Autor: Obed Alvarado
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
-	---------------------------*/
+	
 session_start();
 $session_id= session_id();
 if (isset($_POST['id'])){$id=$_POST['id'];}

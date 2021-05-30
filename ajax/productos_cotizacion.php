@@ -1,10 +1,6 @@
 <?php
  
-	/*-------------------------
-	Autor: Obed Alvarado
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
-	---------------------------*/
+
 	/* Connect To Database*/
 	require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 	require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
@@ -12,7 +8,7 @@
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 	if($action == 'ajax'){
 		// escaping, additionally removing everything that could be (html/javascript-) code
-         $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
+         $q = sqlsrv_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
 		 $aColumns = array('codigo_producto', 'nombre_producto');//Columnas de busqueda
 		 $sTable = "productos_demo";
 		 $sWhere = "";
@@ -33,14 +29,14 @@
 		$adjacents  = 4; //gap between pages after number of adjacents
 		$offset = ($page - 1) * $per_page;
 		//Count the total number of row in your table*/
-		$count_query   = mysqli_query($con, "SELECT count(*) AS numrows FROM $sTable  $sWhere");
-		$row= mysqli_fetch_array($count_query);
+		$count_query   = sqlsrv_query($con, "SELECT count(*) AS numrows FROM $sTable  $sWhere");
+		$row= sqlsrv_fetch_array($count_query);
 		$numrows = $row['numrows'];
 		$total_pages = ceil($numrows/$per_page);
 		$reload = './index.php';
 		//main query to fetch the data
 		$sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
-		$query = mysqli_query($con, $sql);
+		$query = sqlsrv_query($con, $sql);
 		//loop through fetched data
 		if ($numrows>0){
 			
@@ -56,14 +52,14 @@
 					<th style="width: 36px;"></th>
 				</tr>
 				<?php
-				while ($row=mysqli_fetch_array($query)){
+				while ($row=sqlsrv_fetch_array($query)){
 					$id_producto=$row['id_producto'];
 					$codigo_producto=$row['codigo_producto'];
 					$nombre_producto=$row['nombre_producto'];
 					$id_marca_producto=$row['id_marca_producto'];
 					$codigo_producto=$row["codigo_producto"];
-					$sql_marca=mysqli_query($con, "select nombre_marca from marcas_demo where id_marca='$id_marca_producto'");
-					$rw_marca=mysqli_fetch_array($sql_marca);
+					$sql_marca=sqlsrv_query($con, "select nombre_marca from marcas_demo where id_marca='$id_marca_producto'");
+					$rw_marca=sqlsrv_fetch_array($sql_marca);
 					$nombre_marca=$rw_marca['nombre_marca'];
 					$precio_venta=$row["precio_producto"];
 					$precio_venta=number_format($precio_venta,2);
