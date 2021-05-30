@@ -12,11 +12,11 @@ if (isset($_POST['precio_venta'])){$precio_venta=$_POST['precio_venta'];}
 	
 if (!empty($id) and !empty($cantidad) and !empty($precio_venta))
 {
-$insert_tmp=mysqli_query($con, "INSERT INTO tmp_cotizacion (id_producto,cantidad_tmp,precio_tmp,session_id) VALUES ('$id','$cantidad','$precio_venta','$session_id')");
+$insert_tmp=sqlsrv_query($con, "INSERT INTO tmp_cotizacion (id_tmp, id_producto,cantidad_tmp,precio_tmp,session_id) VALUES ('8','$id','$cantidad','$precio_venta','$session_id')");
 }
 if (isset($_GET['id']))//codigo elimina un elemento del array
 {
-$delete=mysqli_query($con, "DELETE FROM tmp_cotizacion WHERE id_tmp='".mysql_escape_string($_GET['id'])."'");
+$delete=sqlsrv_query($con, "DELETE FROM tmp_cotizacion WHERE id_tmp='".mysql_escape_string($_GET['id'])."'");
 }
 
 ?>
@@ -31,8 +31,8 @@ $delete=mysqli_query($con, "DELETE FROM tmp_cotizacion WHERE id_tmp='".mysql_esc
 </tr>
 <?php
 	$sumador_total=0;
-	$sql=mysqli_query($con, "select * from productos_demo, tmp_cotizacion where productos_demo.id_producto=tmp_cotizacion.id_producto and tmp_cotizacion.session_id='".$session_id."'");
-	while ($row=mysqli_fetch_array($sql))
+	$sql=sqlsrv_query($con, "select * from productos_demo, tmp_cotizacion where productos_demo.id_producto=tmp_cotizacion.id_producto and tmp_cotizacion.session_id='".$session_id."'");
+	while ($row=sqlsrv_fetch_array($sql))
 	{
 	$id_tmp=$row["id_tmp"];
 	$codigo_producto=$row['codigo_producto'];
@@ -41,8 +41,8 @@ $delete=mysqli_query($con, "DELETE FROM tmp_cotizacion WHERE id_tmp='".mysql_esc
 	$id_marca_producto=$row['id_marca_producto'];
 	if (!empty($id_marca_producto))
 	{
-	$sql_marca=mysqli_query($con, "select nombre_marca from marcas_demo where id_marca='$id_marca_producto'");
-	$rw_marca=mysqli_fetch_array($sql_marca);
+	$sql_marca=sqlsrv_query($con, "select nombre_marca from marcas_demo where id_marca='$id_marca_producto'");
+	$rw_marca=sqlsrv_fetch_array($sql_marca);
 	$nombre_marca=$rw_marca['nombre_marca'];
 	$marca_producto=" ".strtoupper($nombre_marca);
 	}
