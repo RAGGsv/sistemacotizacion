@@ -8,20 +8,10 @@
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 	if($action == 'ajax'){
 		// escaping, additionally removing everything that could be (html/javascript-) code
-         $q = sqlsrv_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
-		 $aColumns = array('codigo_producto', 'nombre_producto');//Columnas de busqueda
+        
 		 $sTable = "productos_demo";
 		 $sWhere = "";
-		if ( $_GET['q'] != "" )
-		{
-			$sWhere = "WHERE (";
-			for ( $i=0 ; $i<count($aColumns) ; $i++ )
-			{
-				$sWhere .= $aColumns[$i]." LIKE '%".$q."%' OR ";
-			}
-			$sWhere = substr_replace( $sWhere, "", -3 );
-			$sWhere .= ')';
-		}
+		
 		include 'pagination.php'; //include pagination file
 		//pagination variables
 		$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
@@ -35,7 +25,8 @@
 		$total_pages = ceil($numrows/$per_page);
 		$reload = './index.php';
 		//main query to fetch the data
-		$sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
+		//$sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
+		$sql="SELECT * FROM  $sTable $sWhere";
 		$query = sqlsrv_query($con, $sql);
 		//loop through fetched data
 		if ($numrows>0){
@@ -52,7 +43,7 @@
 					<th style="width: 36px;"></th>
 				</tr>
 				<?php
-				while ($row=sqlsrv_fetch_array($query)){
+				while ( $row = sqlsrv_fetch_array( $query, SQLSRV_FETCH_ASSOC)){
 					$id_producto=$row['id_producto'];
 					$codigo_producto=$row['codigo_producto'];
 					$nombre_producto=$row['nombre_producto'];

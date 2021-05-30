@@ -11,7 +11,7 @@
 ?>
 
 
-/<?php
+<?php
  $serverName = "RAG-5\SQLEXPRESS"; //serverName\instanceName
 
 // Puesto que no se han especificado UID ni PWD en el array  $connectionInfo,
@@ -20,7 +20,7 @@ $connectionInfo = array( "Database"=>"cotizador_bs3");
 $con = sqlsrv_connect( $serverName, $connectionInfo);
 
 if( $con ) {
-     echo "Conexión establecida.<br />";
+    
 }else{
      echo "Conexión no se pudo establecer.<br />";
      die( print_r( sqlsrv_errors(), true));
