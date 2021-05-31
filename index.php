@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=100">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Cotizador de Productos Online</title>
    <!-- Latest compiled and minified CSS -->
@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,7 +24,14 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+ 
+ <body background="./img/bg.jpg">
+   <style> 
+div {
+ border-radius: 50px;
+  
+}
+</style>
     <div class="container">
 		 
 				
@@ -47,178 +56,68 @@
 			</form>
 			<br>
 		</div>
+		<div align="center" >
+
+		
+					
+			<form class="form-inline my-2 my-lg-0"  >
+
+				
+					<a href="./indexcotizar.php" class="btn btn-danger btn-lg btn-block" >Cotiza YA!!&nbsp;&nbsp;&nbsp;<i class="fas fa-user-plus"></i></a>&nbsp;&nbsp;&nbsp;
+					
+			
+						
+			</form>
+			<br>
+		</div>
 		
 
 
 
 
 	</nav>
-
-
-<div class="container">
-			<h2><span class="glyphicon glyphicon-edit"></span> Nueva Cotización</h2>
-			<hr>
-			<form class="form-horizontal" role="form" id="datos_cotizacion">
-				<div class="form-group row">
-				  <label for="atencion" class="col-md-1 control-label">Atención:</label>
-				  <div class="col-md-3">
-					  <input type="text" class="form-control" id="atencion" placeholder="Atención" required>
-				  </div>
-				  <label for="tel1" class="col-md-1 control-label">Teléfono:</label>
-							<div class="col-md-2">
-								<input type="text" class="form-control" id="tel1" placeholder="Teléfono" required>
-							</div>
-				</div>
-						<div class="form-group row">
-							<label for="empresa" class="col-md-1 control-label">Empresa:</label>
-							<div class="col-md-3">
-								<input type="text" class="form-control" id="empresa" placeholder="Nombre del asesor">
-							</div>
-							<label for="tel2" class="col-md-1 control-label">Teléfono:</label>
-							<div class="col-md-2">
-								<input type="text" class="form-control" id="tel2" placeholder="Teléfono asesor">
-							</div>
-							<label for="email" class="col-md-1 control-label">Email:</label>
-							<div class="col-md-3">
-								<input type="email" class="form-control" id="email" placeholder="Email asesor">
-							</div>
-						</div>
-				
-				
-				<div class="col-md-12">
-					<div class="pull-right">
-						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
-						 <span class="glyphicon glyphicon-plus"></span> Agregar productos
-						</button>
-						<button type="submit" class="btn btn-default">
-						  <span class="glyphicon glyphicon-print"></span> Imprimir
-						</button>
-					</div>	
-				</div>
-			</form>
-			<br><br>
-		<div id="resultados" class='col-md-12'></div><!-- Carga los datos ajax -->
 	
-			<!-- Modal -->
-			<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-				  <div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Buscar productos</h4>
-				  </div>
-				  <div class="modal-body">
-					<form class="form-horizontal">
-					  <div class="form-group">
-						<div class="col-sm-6">
-						  <input type="text" class="form-control" id="q" placeholder="Buscar productos" onkeyup="load(1)">
-						</div>
-						<button type="button" class="btn btn-default" onclick="load(1)"><span class='glyphicon glyphicon-search'></span> Buscar</button>
-					  </div>
-					</form>
-					<div id="loader" style="position: absolute;	text-align: center;	top: 55px;	width: 100%;display:none;"></div><!-- Carga gif animado -->
-					<div class="outer_div" ></div><!-- Datos ajax Final -->
-				  </div>
-				  <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-					
-				  </div>
-				</div>
-			  </div>
-			</div>
-			
-			</div>	
-		 </div>
-	</div>
+<div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./img/r1.png" class="d-block w-100" alt="bootstrap" 
+                                width="620px" height="350px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/r2.png" class="d-block w-100" alt="..." 
+                                width="620px" height="350px">
+                            </div>
+                            <div class="carousel-item">
+                                <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blanck">
+                                    <img src="./img/r3.jpg" class="d-block w-100" alt="..." 
+                                        width="620px" height="350px">
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/VentanaCentrada.js"></script>
-	<script>
-		$(document).ready(function(){
-			load(1);
-		});
 
-		function load(page){
-			var q= $("#q").val();
-			$("#loader").fadeIn('slow');
-			$.ajax({
-				url:'./ajax/productos_cotizacion.php?action=ajax&page='+page+'&q='+q,
-				 beforeSend: function(objeto){
-				 $('#loader').html('<img src="./img/ajax-loader.gif"> Cargando...');
-			  },
-				success:function(data){
-					$(".outer_div").html(data).fadeIn('slow');
-					$('#loader').html('');
-					
-				}
-			})
-		}
-	</script>
-	<script>
-	function agregar (id)
-		{
-			var precio_venta=document.getElementById('precio_venta_'+id).value;
-			var cantidad=document.getElementById('cantidad_'+id).value;
-			//Inicia validacion
-			if (isNaN(cantidad))
-			{
-			alert('Esto no es un numero');
-			document.getElementById('cantidad_'+id).focus();
-			return false;
-			}
-			if (isNaN(precio_venta))
-			{
-			alert('Esto no es un numero');
-			document.getElementById('precio_venta_'+id).focus();
-			return false;
-			}
-			//Fin validacion
-			
-			$.ajax({
-        type: "POST",
-        url: "./ajax/agregar_cotizador.php",
-        data: "id="+id+"&precio_venta="+precio_venta+"&cantidad="+cantidad,
-		 beforeSend: function(objeto){
-			$("#resultados").html("Mensaje: Cargando...");
-		  },
-        success: function(datos){
-		$("#resultados").html(datos);
-		}
-			});
-		}
-		
-			function eliminar (id)
-		{
-			
-			$.ajax({
-        type: "GET",
-        url: "./ajax/agregar_cotizador.php",
-        data: "id="+id,
-		 beforeSend: function(objeto){
-			$("#resultados").html("Mensaje: Cargando...");
-		  },
-        success: function(datos){
-		$("#resultados").html(datos);
-		}
-			});
 
-		}
-		
-		$("#datos_cotizacion").submit(function(){
-		  var atencion = $("#atencion").val();
-		  var tel1 = $("#tel1").val();
-		  var empresa = $("#empresa").val();
-		  var tel2 = $("#tel2").val();
-		  var email = $("#email").val();
-		  var condiciones = $("#condiciones").val();
-		  var validez = $("#validez").val();
-		  var entrega = $("#entrega").val();
-		 VentanaCentrada('./pdf/documentos/cotizacion_pdf.php?atencion='+atencion+'&tel1='+tel1+'&empresa='+empresa+'&tel2='+tel2+'&email='+email+'&condiciones='+condiciones+'&validez='+validez+'&entrega='+entrega,'Cotizacion','','1024','768','true');
-	 	});
-	</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     
   </body>
 </html>
