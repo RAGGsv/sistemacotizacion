@@ -1,5 +1,9 @@
 <?php
-
+	/*-------------------------
+	Autor: Obed Alvarado
+	Web: obedalvarado.pw
+	Mail: info@obedalvarado.pw
+	---------------------------*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,15 +76,15 @@
 						<div class="form-group row">
 							<label for="empresa" class="col-md-1 control-label">Empresa:</label>
 							<div class="col-md-3">
-								<input type="text" class="form-control" id="empresa" placeholder="Nombre de la empresa">
+								<input type="text" class="form-control" id="empresa" placeholder="Nombre del asesor">
 							</div>
 							<label for="tel2" class="col-md-1 control-label">Teléfono:</label>
 							<div class="col-md-2">
-								<input type="text" class="form-control" id="tel2" placeholder="Teléfono empresa">
+								<input type="text" class="form-control" id="tel2" placeholder="Teléfono asesor">
 							</div>
 							<label for="email" class="col-md-1 control-label">Email:</label>
 							<div class="col-md-3">
-								<input type="email" class="form-control" id="email" placeholder="Email">
+								<input type="email" class="form-control" id="email" placeholder="Email asesor">
 							</div>
 						</div>
 				
